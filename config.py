@@ -27,6 +27,9 @@ def get_config(case):
         parser.add_argument('-load1', '--load_step1_checkpoint', dest='load_step1_checkpoint', action='store_true')
         parser.add_argument('-no-load1', '--not_load_step1_checkpoint', dest='load_step1_checkpoint', action='store_false')
 
+        parser.add_argument('-1run', '--first_run', dest='upload_first_run_step1', action='store_false')
+        parser.add_argument('-2run', '--not_first_run', dest='upload_first_run_step1', action='store_true')
+        
         parser.add_argument('-ne1', '--num_epoch_step1', type = int, help='num_epoch_step1', default = 20, required=True)
         parser.add_argument('-ne2', '--num_epoch_step2', type = int, help='num_epoch_step2', default = 30, required=True)
         parser.add_argument('-lr1', '--learning_rate_step1', type = float, help='learning_rate_step1', default = 0.00005, required=True)
@@ -47,6 +50,9 @@ def get_config(case):
         parser.add_argument('-checkpoint', '--checkpoint_path', help='specify model checkpoint' ,required=True)
         parser.add_argument('-conf', '--config_path', help='specify training config json' ,required=True)
         parser.add_argument('-cuda', '--cuda', help='specify cuda device name, e.g. cuda:0, cuda:1, etc', default = 'cuda:0')
+        parser.add_argument('-api', '--api_key', help='Specify the API key for ChatGPT', required=True)
+        parser.add_argument('--pickle_file_path', help='Specify path to the pickle file', required=True)
+
         args = vars(parser.parse_args())
 
 
