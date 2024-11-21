@@ -78,6 +78,7 @@ def eval_model(dataloaders, device, tokenizer, criterion, model,api_key = '1234'
                         
             target_tokens = tokenizer.convert_ids_to_tokens(target_ids_batch[0].tolist(), skip_special_tokens = True)
             target_string = tokenizer.decode(target_ids_batch[0], skip_special_tokens = True)
+            f.write(f'target string: {target_string}\n')
 
 
             target_tokens_string = "["
